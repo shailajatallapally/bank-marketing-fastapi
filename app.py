@@ -25,7 +25,7 @@ with open("bank_marketing_VAR2.pkl", "rb") as file:
 
 app = FastAPI(
     title="Bank Marketing Prediction & Forecast API",
-    description="XGBoost prediction and VAR(2) forecasting API"
+    description="XGBoost prediction and VAR(2) forecasting API",
     version="1.0.0"
 )
 app.add_middleware(
