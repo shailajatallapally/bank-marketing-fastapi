@@ -137,10 +137,8 @@ def health():
 # 7. PREDICT
 # ==========================================
 
-@app.post("/predict")
-def predict(data: BankMarketingInput):
-
-    # Convert input into dictionary
+@app.post("/forecast")
+def forecast(data: ForecastInput):
 
     input_dict = {
         "age": data.age,
