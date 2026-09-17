@@ -24,8 +24,8 @@ with open("bank_marketing_VAR2.pkl", "rb") as file:
 # ==========================================
 
 app = FastAPI(
-    title="Bank Marketing Prediction API",
-    description="XGBoost model for predicting term deposit subscription",
+    title="Bank Marketing Prediction & Forecast API",
+    description="XGBoost prediction and VAR(2) forecasting API"
     version="1.0.0"
 )
 
