@@ -1,0 +1,100 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile document stored under users/{uid}",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "Unique identifier corresponding to Firebase Auth UID"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "User display name or email prefix",
+          "maxLength": 100
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Verified user email address"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when user profile was established"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when profile was last updated"
+        },
+        "role": {
+          "type": "string",
+          "description": "Institutional role title"
+        },
+        "organization": {
+          "type": "string",
+          "description": "Institution or department name"
+        }
+      },
+      "required": ["uid", "email"]
+    },
+    "PredictionRecord": {
+      "title": "PredictionRecord",
+      "description": "Prediction or forecast audit record under users/{uid}/predictions/{predictionId}",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "Firebase Auth UID of the record owner"
+        },
+        "modelId": {
+          "type": "string",
+          "description": "Machine learning model identifier (e.g. xgboost-term-deposit or var2-campaign-forecast)"
+        },
+        "modelName": {
+          "type": "string",
+          "description": "Human-readable model title"
+        },
+        "input": {
+          "type": "object",
+          "description": "Exact input parameters sent to the FastAPI ML backend"
+        },
+        "output": {
+          "type": "object",
+          "description": "Exact prediction or forecast response returned by the FastAPI ML backend"
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of inference logging"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["success", "error"],
+          "description": "Execution status flag"
+        },
+        "executionTimeMs": {
+          "type": "number",
+          "description": "Execution latency in milliseconds"
+        },
+        "endpoint": {
+          "type": "string",
+          "description": "REST API endpoint path invoked"
+        }
+      },
+      "required": ["uid", "modelId", "modelName", "input", "output", "status"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Authenticated user profile document"
+    },
+    "/users/{userId}/predictions/{predictionId}": {
+      "schema": "PredictionRecord",
+      "description": "User-isolated ML prediction and forecast history collection"
+    }
+  }
+}

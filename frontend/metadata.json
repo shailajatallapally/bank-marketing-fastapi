@@ -1,0 +1,8 @@
+{
+  "name": "Bank Marketing ML Platform - Firebase Auth Complete",
+  "description": "Predictive analytics and time-series forecasting platform for bank deposit subscriptions, XGBoost inference, and VAR(2) forecasting with Firebase Authentication and Cloud Firestore prediction history.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
