@@ -10,12 +10,12 @@ import pandas as pd
 # 1. LOAD MODEL AND PREPROCESSING
 # ==========================================
 
-model = joblib.load("bank_marketing_final_xgb_model.pkl")
-threshold = joblib.load("bank_marketing_xgb_threshold.pkl")
-encoder = joblib.load("encoder.pkl")
-scaler = joblib.load("scaler.pkl")
+model = joblib.load("models/bank_marketing_final_xgb_model.pkl")
+threshold = joblib.load("models/bank_marketing_xgb_threshold.pkl")
+encoder = joblib.load("models/encoder.pkl")
+scaler = joblib.load("models/scaler.pkl")
 
-with open("bank_marketing_VAR2.pkl", "rb") as file:
+with open("models/bank_marketing_VAR2.pkl", "rb") as file:
     var_model = pickle.load(file)
 
 
