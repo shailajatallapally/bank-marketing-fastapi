@@ -7,5 +7,5 @@ numpy
 pandas
 xgboost
 pydantic
-Statsmodels
+statsmodels
 pyarrow
